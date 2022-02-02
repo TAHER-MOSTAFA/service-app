@@ -5,9 +5,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title> سجل معنا </title>
+	<title>{{company.name}}</title>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/signup.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/company.css">
 	<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/font-awesome.min.css">
 </head>
 <body>
@@ -51,9 +51,8 @@
       
       {% if user.is_authenticated %}
         <li id="phone1"><a class="text-white" href="/wishlist/"><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i></a></li>
-        <li id="phone2" class="text-white">{{user.username}}</li>
       {% else %}
-        <li id="phone1"><a class="text-white" href="#"><i class="fa fa-user-o fa-lg" aria-hidden="true"></i></a></li>
+        <li id="phone1"><a class="text-white" href="/accounts/login/"><i class="fa fa-user-o fa-lg" aria-hidden="true"></i></a></li>
       {% endif %}
       <li id="phone2"><a class="text-white" href="#"><i class="fa fa-android fa-lg" aria-hidden="true"></i></a></li>
     
@@ -63,18 +62,6 @@
   </nav>
  </div>
 </div><br><br><br>
-{% if message %}
-<div class="alert alert-success" role="alert">
-  {{message}}
-</div>
-{% endif %}
-
-{% for key, value in errors.items %}
-<div class="alert alert-danger" role="alert">
-  {{value.0|escape}} 
-</div>
-{% endfor %}
-
   <div class="container"> 
  <section class="search1">
  	<nav>
@@ -89,43 +76,53 @@
    <!--End Of Search Bar-->
 
 
-   <div class="container">
-    <div class="login1">
-      <ul class="nav justify-content-center" id="list2">
-           <li class="nav-item"><h4>
-            <a class="nav-link active " href="#">SIGN UP</a></h4>
-           </li>
-           <li class="nav-item"><h4>
-            <a class="nav-link text-secondary" href="{{ login_url }}">LOG IN</a></h4>
-           </li>
-         </ul>
-          <span id="line"></span>
-       <form class="form-signin signup" id="signup_form" method="post" action="{% url 'account_signup' %}" >
-        {% csrf_token %}
-         <div class="form-label-group">
-           <h6 id="text1">.Enter your username and password to sign up </h6>
-         <input type="username" id="username" class="form-control" placeholder="username" name="username" required autofocus>
-         </div><br>
-         <div class="form-label-group">
-         <input type="email" id="inputEmail" class="form-control" placeholder="Enter your Email" name="email" required autofocus>
-         </div><br>
-         <div class="form-label-group">
-         <input type="password" id="inputPassword" class="form-control" placeholder="Enter your Password" name="password1" required>
-         </div><br>
-         <div class="form-label-group">
-         <input type="password" id="inputPassword" class="form-control" placeholder="Confirm your Password" name="password2" required>
-         </div><br>
-         {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-         {% endif %}
-          <button class="btn btn-lg btn-primary btn-block rounded-pill" id="button1" type="submit">Sign Up</button>
-        </form> 
-        </div>
-    </div>
-  <br><br>
 
- <!--Start Of Footer-->
- <section class="footer1">
+    <div class="container">
+    	<img id="img2" class="rounded mx-auto d-block" src="/media/{{company.image}}">
+    </div><br>
+    <div class="container">
+    	<div class="descripiction">
+        <h5 style="text-align:center;">عن هذه الشركة</h5>
+        <span id="line1" class="rounded mx-auto d-block" ></span><br>
+        {{ company.description|safe }}
+        <p>{{company.address}}</p>
+      </div>
+    </div>
+
+
+    <div class="container">
+    	<h5 style="text-align: center;">الماكينات التى توفرها</h5>
+      <span id="line2" class="rounded mx-auto d-block" ></span><br>
+    </div>
+
+
+      {% regroup machines by category as category_list %}
+      {% for category in category_list %}
+        <div class="container">
+        <h5>{{ category.grouper }}</h5>
+        <span id="line3"></span><br>
+        <section id="facilities">
+        <div class="row">
+        {% for machine in category.list %}
+          <div class="col-md-4">
+            <div class="card text-center">
+              <img src="/media/{{ machine.image }}" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title">{{ machine.name }}</h5>
+                <p class="card-text">{{ machine.description|safe|truncatechars_html:70 }}</p>
+                <a href="/machine/{{ machine.id }}">Check Machine</a>
+              </div>
+            </div>
+          </div>
+          <br>   
+        {% endfor %}
+        </div>
+        </section>
+        </div><br>
+      {% endfor %}
+
+      <!--Start Of Footer-->
+<section class="footer1">
   <div class="header-content1">
       <ul class="list-unstyled">
               <li id="list1"><h5>اطلع على اخر الاخبار والعروض من خلال</h5>

@@ -1,0 +1,27 @@
+<svg id="_3225191_app_instagram_logo_media_popular_icon" data-name="3225191_app_instagram_logo_media_popular_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.146" y1="0.854" x2="0.854" y2="0.146" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffd521"/>
+      <stop offset="0.055" stop-color="#ffd020"/>
+      <stop offset="0.124" stop-color="#fec01e"/>
+      <stop offset="0.2" stop-color="#fca71b"/>
+      <stop offset="0.282" stop-color="#fa8316"/>
+      <stop offset="0.368" stop-color="#f85510"/>
+      <stop offset="0.456" stop-color="#f51e09"/>
+      <stop offset="0.5" stop-color="#f30005"/>
+      <stop offset="0.503" stop-color="#f20007"/>
+      <stop offset="0.597" stop-color="#e1003b"/>
+      <stop offset="0.688" stop-color="#d30067"/>
+      <stop offset="0.776" stop-color="#c70088"/>
+      <stop offset="0.859" stop-color="#bf00a0"/>
+      <stop offset="0.936" stop-color="#bb00af"/>
+      <stop offset="1" stop-color="#b900b4"/>
+    </linearGradient>
+  </defs>
+  <path id="Path_16" data-name="Path 16" d="M25,50h0A25,25,0,0,1,0,25H0A25,25,0,0,1,25,0h0A25,25,0,0,1,50,25h0A25,25,0,0,1,25,50Z" fill="url(#linear-gradient)"/>
+  <g id="Group_1" data-name="Group 1" transform="translate(7.93 7.935)">
+    <path id="Path_17" data-name="Path 17" d="M175.67,161.775c4.555,0,5.1.015,6.9.1a9.363,9.363,0,0,1,3.17.59,5.644,5.644,0,0,1,3.235,3.235,9.493,9.493,0,0,1,.59,3.17c.08,1.8.1,2.34.1,6.9s-.015,5.1-.1,6.9a9.363,9.363,0,0,1-.59,3.17,5.644,5.644,0,0,1-3.235,3.235,9.492,9.492,0,0,1-3.17.59c-1.8.08-2.34.1-6.9.1s-5.1-.015-6.9-.1a9.363,9.363,0,0,1-3.17-.59,5.644,5.644,0,0,1-3.235-3.235,9.493,9.493,0,0,1-.59-3.17c-.08-1.8-.1-2.34-.1-6.9s.015-5.1.1-6.9a9.363,9.363,0,0,1,.59-3.17,5.644,5.644,0,0,1,3.235-3.235,9.493,9.493,0,0,1,3.17-.59c1.8-.085,2.34-.1,6.9-.1m0-3.075c-4.635,0-5.215.02-7.035.1a12.544,12.544,0,0,0-4.145.8,8.238,8.238,0,0,0-3.02,1.965,8.4,8.4,0,0,0-1.97,3.025,12.618,12.618,0,0,0-.795,4.145c-.085,1.82-.105,2.4-.105,7.035s.02,5.215.105,7.035a12.543,12.543,0,0,0,.795,4.145,8.756,8.756,0,0,0,4.995,4.985,12.618,12.618,0,0,0,4.145.8c1.82.085,2.4.1,7.035.1s5.215-.02,7.035-.1a12.544,12.544,0,0,0,4.145-.8,8.756,8.756,0,0,0,4.985-4.995,12.618,12.618,0,0,0,.795-4.145c.085-1.82.105-2.4.105-7.035s-.02-5.215-.105-7.035a12.543,12.543,0,0,0-.795-4.145,8.756,8.756,0,0,0-4.995-4.985,12.618,12.618,0,0,0-4.145-.795c-1.815-.08-2.4-.1-7.03-.1Z" transform="translate(-158.6 -158.7)" fill="#fff"/>
+    <path id="Path_18" data-name="Path 18" d="M333.465,324.7a8.765,8.765,0,1,0,8.765,8.765A8.766,8.766,0,0,0,333.465,324.7Zm0,14.455a5.69,5.69,0,1,1,5.69-5.69A5.69,5.69,0,0,1,333.465,339.155Z" transform="translate(-316.395 -316.4)" fill="#fff"/>
+    <circle id="Ellipse_9" data-name="Ellipse 9" cx="2.05" cy="2.05" r="2.05" transform="translate(24.13 5.905)" fill="#fff"/>
+  </g>
+</svg>

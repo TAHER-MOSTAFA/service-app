@@ -1,0 +1,171 @@
+html{ direction: rtl; 
+}
+body{
+	background-color:#EDEDED ;
+	max-width: 98.1% ;
+}
+.container{
+	padding-right: 40px;
+}
+#bar1{
+	background-color: #0C2D48;
+}
+.bar img{
+	width: 210px;
+	height: 55px;
+}
+#phone1{
+margin-right: 240px;
+margin-top: 7px;
+}
+#phone2{
+	margin-right: 30px;
+	margin-top: 7px;
+}
+.navbar-nav{
+	margin-right: 140px;
+}
+.search1 nav{
+	background-color:#EDEDED ;
+}
+.form-inline input{
+	text-align: center;
+	border: 2px solid #C4C4C4;
+	padding: 10PX;
+	margin: 10PX;
+	margin-top: 20px;
+	width: 85%;
+}
+.form-inline button{
+	margin-top: 5px;
+}
+
+.carousel-item img{
+	height: 600px;
+}
+.slider{
+	min-width: 101.95%;
+}
+#line{
+	display: block;
+	width: 115px;
+	height: 2px;
+	margin: auto;
+	background-color: #0C2D48;
+}
+.inf4{
+	text-align: center;
+}
+.inf1 {
+	border: 2px solid #EDEDED;
+	border-radius:5px ;
+	background-color: #EDEDED;
+	height: 45%;
+}
+.inf1 p{
+	padding-top: 5px;
+	font-weight: 500;
+	font-size: 26px;
+	margin-right: 0px;
+	color: #A6A6AA;
+	text-align: center;
+}
+.card-body h5{
+	text-align: right;
+}
+.card-text {
+	text-align: right;
+}
+.part-item1 {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 40px;
+	text-align: center;
+}
+.part1 img{
+	width: 70%;
+}
+.sec-title{
+	text-align: center;
+}
+.cont {
+	background-color: #EDEDED;
+	height:400px;
+}
+.cont h2{
+	text-align: center;
+	margin: 10px;
+}
+#search1{
+	margin-bottom: 40PX;
+	margin-top: 30PX;
+	border: 2px solid lightgray;
+	border-radius: 2px;
+	height: 45px;
+	text-align: center;
+	font-weight: 500;
+}
+#search2{
+	margin-top: 30px;
+	border: 2px solid lightgray;
+	border-radius: 2px;
+	height: 45px;
+	text-align: center;
+	font-weight: 500;	
+}
+#search16{
+	margin-top: 10px;
+	font-weight: 500;
+	font-size: 16px;
+	padding-right: 15px;
+	text-align: right;
+	border: 2px solid lightgray;
+	border-radius: 2px;
+	width: 85%;
+	height: 200px;
+	margin-bottom: 20px;
+}
+#search12{
+	margin-left: 85px;	
+}
+.footer1 .header-content1{
+	display: flex;
+	justify-content:space-between;
+	align-items: center;
+	background-color: #0C2D48;
+	color: white;
+	min-width: 101.95%;
+}
+.header-content1 img {
+ flex :1 ;
+ max-width: 250px;
+ height: 30px;
+ background-color: #0C2D48;
+ margin-left: 40px;
+}
+.header-content1 nav {
+ flex: 2;
+ text-align: center;
+}
+.footer{
+	margin-right: 35px;
+}
+#login1{
+	padding: 7px;
+	margin-left: 35px;
+}
+.header-content1 ul li {
+	display: inline-block;
+}
+#social{
+	text-align: right;
+}
+#list1{
+	margin-top: 16px;
+}
+.social2{
+	height: 37px;
+	width: 37px;
+	margin-left: 8px ;
+}
+

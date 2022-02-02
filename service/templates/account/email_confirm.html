@@ -1,5 +1,82 @@
-{% extends "account/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{category.name}} </title>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/bs_cont.css">
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/category.css">
+	<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/font-awesome.min.css">
+</head>
+<body>
+<div class="bar">
+  	<div>
+  		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="bar1">
+        <div class="container-xl">
+        <a href="/">
+            <img src="{{ STATIC_PREFIX }}images/main-logo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item {% if active == 'home' %}active{% endif %}">
+        <a class="nav-link" href="/">الرئيسية <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown {% if active == 'company' %}active{% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+          الشركات
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          {% for company in companies %}
+          <a class="dropdown-item" href="/company/{{company.id}}">{{ company.name }}</a>
+          {% endfor %}
+        </div>
+      </li>
+      <li class="nav-item dropdown {% if active == 'machine' %}active{% endif %}">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+          الماكينات
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          {% for category in categories %}
+          <a class="dropdown-item" href="/category/{{ category.id }}">{{ category.name }}</a>
+          {% endfor %}
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if active == 'contact' %}active{% endif %}" href="/contact/">اتصل بنا</a>
+      </li>
+      
+      {% if user.is_authenticated %}
+        <li id="phone1"><a class="text-white" href="/wishlist/"><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i></a></li>
+      {% else %}
+        <li id="phone1"><a class="text-white" href="/accounts/login/"><i class="fa fa-user-o fa-lg" aria-hidden="true"></i></a></li>
+      {% endif %}
+      <li id="phone2"><a class="text-white" href="#"><i class="fa fa-android fa-lg" aria-hidden="true"></i></a></li>
+    
+    </ul>
+   </div>
+   </div>
+  </nav>
+ </div>
+</div><br><br><br>
+  <div class="container"> 
+ <section class="search1">
+ 	<nav>
+    <form class="form-inline justify-content-center" method="GET" action="/search">
+      <input class=" rounded-pill " name='q' type="search" placeholder="محرك داخلى للبحث عن  الماكينات" aria-label="Search">
+      <button class="btn btn-outline-success rounded-pill " type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+ </nav>
+ </div>
+</section>
 
+   <!--End Of Search Bar-->
+
+   
 {% load i18n %}
 {% load account %}
 
@@ -29,3 +106,54 @@
 {% endif %}
 
 {% endblock %}
+
+          <!--Start Of Footer-->
+          <section class="footer1">
+            <div class="header-content1">
+                <ul class="list-unstyled">
+                        <li id="list1"><h5>اطلع على اخر الاخبار والعروض من خلال</h5>
+                    <h5>متابعتنا على مواقع التواصل الاجتماعى</h5>
+                        </li>
+                </ul> 
+                <div class="login">
+                <ul class="list-unstyled">
+                        <li id="login1"><a href = "https://twitter.com/ServiceBrokerr"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+                        <li id="login1"><a href = "https://www.facebook.com/Service-Broker-107236391874747"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+                        <li id="login1"><a href = "#"><i class="fa fa-whatsapp fa-lg" aria-hidden="true"></i></a></li>
+                </ul>
+                </div>
+                <div class="header-content">
+                <img src="{{ STATIC_PREFIX }}images/logo3.svg" alt="service broker logo">
+                </div>
+            </div>
+                </section><br>
+            <footer class="footer text-center">        
+                    <div class="row">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">عن سيرفز بروكر</h4>
+                        <p>يقدم تطبيق الوسيط للخدمات مجموعة واسعة من المعلومات الدقيقة حول آلات CNC. في Service Broker ، يمكنك العثور على كل ما تحتاج لمعرفته حول سوق ماكينات CNC من حيث المواصفات الدقيقة ، والأسعار الكاملة ، ومزايا وعيوب ماكينات CNC بكل حيادية ووضوح. هذا التطبيق مجاني لجميع الأشخاص لاستخدامه ، لأننا نريد إفادة الأشخاص الذين يرغبون في التعرف على ماكينات CNC أو يرغبون في شراء ماكينات CNC </p>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="text-uppercase mb-4">للتواصل معنا</h4>
+                        <a  href="https://twitter.com/ServiceBrokerr"><img class="social2" src="{{ STATIC_PREFIX }}images/twet.svg"></a>
+                        <a  href="https://www.facebook.com/Service-Broker-107236391874747"><img class="social2" src="{{ STATIC_PREFIX }}images/face.svg"></a>
+                        <a  href="https://www.instagram.com/service.broker/"><img class="social2" src="{{ STATIC_PREFIX }}images/inst.svg"></a>
+                        <a  href="https://www.youtube.com/channel/UCQPKQCWScO8o6DYDRVUZpNw"><img class="social2" src="{{ STATIC_PREFIX }}images/what.svg"></a>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">صفحات هامة</h4>
+                        <p class="lead mb-0">عن الشركة</p>
+                        <p class="lead mb-0">سياسة الخصوصية</p>
+                        <p class="lead mb-0">شروط الاستخدام</p>
+                        <p class="lead mb-0">احدث الاخبار</p>
+                        <p class="lead mb-2">تواصل معنا</p>
+                    </div>
+                    </div>  
+            </footer>
+            
+            
+            <script type="text/javascript" src="{{ STATIC_PREFIX }}js/popper.min.js"></script>
+            <script type="text/javascript" src="{{ STATIC_PREFIX }}js/jquery-3.6.0.min.js"></script>
+            <script type="text/javascript" src="{{ STATIC_PREFIX }}js/bootstrap.js"></script>
+            </body>
+            </html>

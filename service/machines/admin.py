@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Company, Machine, Specs
+from .models import Company, Machine, Specs, Conatact, Category
 from django.utils.html import format_html
 
 
@@ -42,3 +42,13 @@ class StackedMachinesAdmin(admin.TabularInline):
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
     inlines = (StackedMachinesAdmin,)
+
+
+@admin.register(Conatact)
+class ContactAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    pass

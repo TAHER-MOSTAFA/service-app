@@ -5,9 +5,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title> سجل معنا </title>
+	<title>المفضلة</title>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/signup.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/favor.css">
 	<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/font-awesome.min.css">
 </head>
 <body>
@@ -51,9 +51,8 @@
       
       {% if user.is_authenticated %}
         <li id="phone1"><a class="text-white" href="/wishlist/"><i class="fa fa-heart-o fa-lg" aria-hidden="true"></i></a></li>
-        <li id="phone2" class="text-white">{{user.username}}</li>
       {% else %}
-        <li id="phone1"><a class="text-white" href="#"><i class="fa fa-user-o fa-lg" aria-hidden="true"></i></a></li>
+        <li id="phone1"><a class="text-white" href="/accounts/login/"><i class="fa fa-user-o fa-lg" aria-hidden="true"></i></a></li>
       {% endif %}
       <li id="phone2"><a class="text-white" href="#"><i class="fa fa-android fa-lg" aria-hidden="true"></i></a></li>
     
@@ -63,18 +62,6 @@
   </nav>
  </div>
 </div><br><br><br>
-{% if message %}
-<div class="alert alert-success" role="alert">
-  {{message}}
-</div>
-{% endif %}
-
-{% for key, value in errors.items %}
-<div class="alert alert-danger" role="alert">
-  {{value.0|escape}} 
-</div>
-{% endfor %}
-
   <div class="container"> 
  <section class="search1">
  	<nav>
@@ -89,43 +76,46 @@
    <!--End Of Search Bar-->
 
 
-   <div class="container">
-    <div class="login1">
-      <ul class="nav justify-content-center" id="list2">
-           <li class="nav-item"><h4>
-            <a class="nav-link active " href="#">SIGN UP</a></h4>
-           </li>
-           <li class="nav-item"><h4>
-            <a class="nav-link text-secondary" href="{{ login_url }}">LOG IN</a></h4>
-           </li>
-         </ul>
-          <span id="line"></span>
-       <form class="form-signin signup" id="signup_form" method="post" action="{% url 'account_signup' %}" >
-        {% csrf_token %}
-         <div class="form-label-group">
-           <h6 id="text1">.Enter your username and password to sign up </h6>
-         <input type="username" id="username" class="form-control" placeholder="username" name="username" required autofocus>
-         </div><br>
-         <div class="form-label-group">
-         <input type="email" id="inputEmail" class="form-control" placeholder="Enter your Email" name="email" required autofocus>
-         </div><br>
-         <div class="form-label-group">
-         <input type="password" id="inputPassword" class="form-control" placeholder="Enter your Password" name="password1" required>
-         </div><br>
-         <div class="form-label-group">
-         <input type="password" id="inputPassword" class="form-control" placeholder="Confirm your Password" name="password2" required>
-         </div><br>
-         {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-         {% endif %}
-          <button class="btn btn-lg btn-primary btn-block rounded-pill" id="button1" type="submit">Sign Up</button>
-        </form> 
+   <div class="container"><br>
+    <h5 id="fav" >قائمة الرغبات <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i></h5>
+    {% if machines %}
+    <h5 id="fav1">وصف المنتج</h5>
+     <span id="line"></span><br>
+    <section id="facilities">
+        {% for machine in machines %}
+        <div id="card1" class="card mb-3" style="max-width: 890px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+            <img src="/media/{{ machine.image }}" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <div class="row">
+                    <div class="col">
+                    <p class="card-text">الاسم : {{ machine.name }}</p>
+                    </div>
+                    <div class="col">
+                    <p class="card-text">وصف مختصر : {{ machine.description|safe|truncatechars_html:50 }}</p>
+                    </div>
+                    </div><br>
+                    <p class="card-text">الشركة : {{ machine.company.name }}</p>
+                    <p class="card-text">النوع : {{ machine.category.name }}</p>
+            </div>
+            </div>
         </div>
-    </div>
-  <br><br>
+        </div>
+      {% endfor %}
+    </section>
+    {% else %}
+    <h5 id="fav1">انت لاتمتلك اى ماكينات مفضلة حالياً</h5>
+     <span id="line"></span><br>
+    {% endif %}
+   </div><br><br><br><br>
 
- <!--Start Of Footer-->
- <section class="footer1">
+
+
+<!--Start Of Footer-->
+<section class="footer1">
   <div class="header-content1">
       <ul class="list-unstyled">
               <li id="list1"><h5>اطلع على اخر الاخبار والعروض من خلال</h5>

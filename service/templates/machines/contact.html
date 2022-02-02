@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title> تواصل معنا </title>
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/bs_cont.css">
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/cont.css">
 	<link rel="stylesheet" href="{{ STATIC_PREFIX }}css/font-awesome.min.css">
@@ -76,17 +76,40 @@
    <!--End Of Search Bar-->
 
  <section class="cont">
+     <h2>ﺗﻮاﺻﻞ ﻣﻌﻨﺎ</h2>
      <span id="line"></span>
+     {% if errors %}
+     <br>
+      {% for key, value in errors.items %}
+        <div class="alert alert-danger" role="alert">
+          {{value.0|escape}} 
+        </div>
+      {% endfor %}
+    {% endif %}
  </section><br>
  <div class="container">
  	<div class="contact">
    
+    {% if message %}
       <div class="alert alert-success" role="alert">
-        The Confiramtion was sent to your E-main plz chack and verify
+        {{message}}
       </div>
+    {% endif %}
 
  		<div class="row">
     <div class="col">
+      <form method='post' action="{{ request.path }}">
+        {% csrf_token %}
+      	<input class="form1" type="text" name="name" placeholder="الاسم">
+      	<input class="form2" type="text" name="phone_num" placeholder="رقم الهاتف">
+      	<textarea class="form3" placeholder="الرسالة" name="message" ></textarea><br><br>
+      	<button type="submit" class="btn btn-primary" id="search12">ارسل</button>
+      </form>
+    </div>
+    <div class="col">
+      <img class="img1" src="/static/images/logo2.svg">
+      <h2 class="talk1">Let's Talk</h2>
+      <h4 class="talk2">... Ask us anything or just say Hi</h4>
     </div>
  	</div>
    </div><br><br>
